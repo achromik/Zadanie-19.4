@@ -41,3 +41,4 @@ function thumbDownComment(id) {
         id,
     }
 }
+

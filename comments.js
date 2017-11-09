@@ -47,5 +47,10 @@ function comments(state = [], action) {
                         comment 
                 })
             ]    
+
+        default:
+            return [state.comments];
     }
 }        
+
+export default comments;
