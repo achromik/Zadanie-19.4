@@ -8,16 +8,16 @@ function comments(state = [], action) {
                 text: action.text,
                 votes: 0
             },
-            ...state.comments];
+            ...state];
         
         case actions.DELETE_COMMENT:
             return [
-                state.comments.filter( comment => comment.id !== action.id)
+                state.filter( comment => comment.id !== action.id)
             ];
 
         case actions.EDIT_COMMENT:
             return [
-                state.comments.map( comment => {
+                state.map( comment => {
                     return comment.id === action.id ?
                         Object.assign({}, comment, {
                             text: action.text
@@ -28,7 +28,7 @@ function comments(state = [], action) {
            
         case actions.THUMB_UP_COMMENT:
             return [
-                state.comments.map( comment => {
+                state.map( comment => {
                     return comment.id === action.id ?
                         Object.assign({}, comment, {
                             votes: comment.votes + 1
@@ -39,7 +39,7 @@ function comments(state = [], action) {
 
         case actions.THUMB_DOWN_COMMENT:
             return [
-                state.comments.map ( comment => {
+                state..map ( comment => {
                     return comment.id === action.id ?
                         Object.assign({}, comment, {
                             votes: comment.votes - 1
@@ -49,7 +49,7 @@ function comments(state = [], action) {
             ]    
 
         default:
-            return [state.comments];
+            return state;
     }
 }        
 
