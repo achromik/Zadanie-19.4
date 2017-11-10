@@ -39,7 +39,7 @@ function comments(state = [], action) {
 
         case actions.THUMB_DOWN_COMMENT:
             return [
-                state..map ( comment => {
+                state.map ( comment => {
                     return comment.id === action.id ?
                         Object.assign({}, comment, {
                             votes: comment.votes - 1
